@@ -1,0 +1,23 @@
+{
+  "name": "remote-queries",
+  "version": "1.0.0",
+  "description": "server for getting remote queries",
+  "repository": "https://github.com/Scevolla/remote-queries.git",
+  "main": "index.js",
+  "engines": {
+    "node": "6.11.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Scevola",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.1",
+    "mongodb": "^2.2.31"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
