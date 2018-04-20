@@ -15,20 +15,31 @@ global.debugWrite = function() {
 const express     = require('express');
 const path        = require('path');
 const app         = express();
-const mongoClient = require('mongodb').MongoClient;
+// const mongoClient = require('mongodb').MongoClient;
 const config      = require('./config');
 
-mongoClient.connect(config.dbUrl, (err, database) => {
-  if (err) {
-    console.log(err);
-  }
+app.set('port', process.env.PORT || 3050);
+app.set('db', database);
 
-  app.set('port', process.env.PORT || 3050);
-  app.set('db', database);
-  
-  app.use(require('./api.js'));
+app.use(express.static('public'));  
+app.use(require('./api.js'));
 
-  app.listen(app.get('port'), function() {
-    console.log('Listening on port ' + app.get('port'));
-  });
+app.listen(app.get('port'), function() {
+  console.log('Listening on port ' + app.get('port'));
 });
+
+// mongoClient.connect(config.dbUrl, (err, database) => {
+//   if (err) {
+//     console.log(err);
+//   }
+
+//   app.set('port', process.env.PORT || 3050);
+//   app.set('db', database);
+
+//   app.use(express.static('public'));  
+//   app.use(require('./api.js'));
+
+//   app.listen(app.get('port'), function() {
+//     console.log('Listening on port ' + app.get('port'));
+//   });
+// });
