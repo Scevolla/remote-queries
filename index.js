@@ -19,7 +19,7 @@ const app         = express();
 const config      = require('./config');
 
 app.set('port', process.env.PORT || 3050);
-app.set('db', database);
+// app.set('db', database);
 
 app.use(express.static('public'));  
 app.use(require('./api.js'));
